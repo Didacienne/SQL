@@ -1,0 +1,38 @@
+--Create an ice cream shop database
+
+CREATE TABLE icecreamshop (id INTEGER PRIMARY KEY, flavor TEXT, price INTEGER, daily_sales INTEGER, inventory INTEGER, tax_rate INTEGER);
+
+INSERT INTO icecreamshop VALUES (1, 'vanilla', 6, 79, 21, 1); 
+INSERT INTO icecreamshop VALUES (2, 'chocolate', 6, 72, 28, 1);
+INSERT INTO icecreamshop VALUES (3, 'vanilla chocolate swirl', 8, 69, 31, 2);
+INSERT INTO icecreamshop VALUES (4, 'vanilla caramel', 8, 87, 13, 2);
+INSERT INTO icecreamshop VALUES (5, 'peanut', 6, 67, 33, 1);
+INSERT INTO icecreamshop VALUES (6, 'peach', 6, 55, 45, 1);
+INSERT INTO icecreamshop VALUES (7, 'cookies and cream', 10, 89, 11, 3);
+INSERT INTO icecreamshop VALUES (8, 'matcha', 10, 87, 13, 3);
+INSERT INTO icecreamshop VALUES (9, 'strawberry', 8, 90, 10, 2);
+INSERT INTO icecreamshop VALUES (10, 'butter pecan', 8, 51, 49, 2);
+INSERT INTO icecreamshop VALUES (11, 'Neapolitan', 10, 78, 22, 3);
+INSERT INTO icecreamshop VALUES (12, 'coffee', 8, 49, 51, 2);
+INSERT INTO icecreamshop VALUES (13, 'pistachio', 6, 34, 66, 1);
+INSERT INTO icecreamshop VALUES (14, 'butterscotch', 8, 90, 10, 2);
+INSERT INTO icecreamshop VALUES (15, 'salted caramel', 10, 92, 8, 3);
+
+--Display the database ordered by price
+Select * FROM icecreamshop;
+ORDER BY price asc;
+
+--What are the total number of daily sales 
+Select SUM(daily_sales) as total_daily_sales FROM icecreamshop;
+
+--What is the sum of the inventory?
+Select SUM(inventory) as total_inventory FROM icecreamshop;
+
+--What is the most amount sold for one flavor? 
+SELECT MAX(Daily_sales) as most_sales FROM icecreamshop;
+
+--what are the most 5 popular items? 
+SELECT item, price, popularity
+FROM icecreamshop
+order by popularity desc
+limit 5; 
